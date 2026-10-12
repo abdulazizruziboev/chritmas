@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
-    <script>
-        if(localStorage.getItem("theme") !== "light" && localStorage.getItem("theme") !== "dark") {
-            localStorage.setItem("theme","light");
-        } else if(localStorage.getItem("theme") === "light") {
-            localStorage.setItem("theme","light");
-        } else if(localStorage.getItem("theme") === "dark") {
-            localStorage.setItem("theme","dark");
-            document.firstElementChild.classList.add("dark");
-        };
-    </script>
 </head>
 <body>
-
-    <button class="theme-toggle-button" id="themeToggleButton">
-        Dark Mode
-    </button>
-    
-    <script src="/script.js" defer type="module"></script>
 </body>
 </html>
