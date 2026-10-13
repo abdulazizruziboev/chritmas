@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chritmas</title>
-    <link rel="stylesheet" href="/sources/styles/styles.css">
+    <link rel="stylesheet" href="/sources/styles/styles.min.css">
 </head>
 <body>
     
@@ -23,8 +23,16 @@
             
             <div class="header-nav-box">
 
-                <nav class="navbar">
+                <nav class="navbar" id="navbar">
                     
+                    <div class="nav-close-bar">
+                        <img src="/resources/images/nav-lamps.svg" alt="Chritmas lamps">
+                        <button id="navbarCloseButton">
+                            <img src="/resources/images/close.svg" alt="X Mark icon black" class="nav-cbl">
+                            <img src="/resources/images/close-d.svg" alt="X Mark icon light" class="nav-cbd">
+                        </button>
+                    </div>
+
                     <ul class="nav-list">
                         <li>
                             <a href="#" class="active">Home</a>
@@ -47,7 +55,7 @@
                     <img src="/resources/images/sun.svg" alt="Moon icon" class="tt-sun-icon">
                 </button>
 
-                <button class="navbar-toggle">
+                <button class="navbar-toggle" id="navbarOpenButton">
                     <img src="/resources/images/grid.svg" alt="Grid icon" class="nt-light-icon">
                     <img src="/resources/images/grid-d.svg" alt="Grid icon" class="nt-dark-icon">
                 </button>
@@ -369,20 +377,113 @@
     </main>
 
     <footer>
+
+        <div class="container footer-container">
+            <div class="main-box">
+                <a href="/" class="footer-logo-link">
+                    <img src="/resources/images/logo.svg" alt="Chritmas logo">
+                    <span>
+                        Chritmas
+                    </span>
+                </a>
+
+                <p>
+                    This Christmas give a lot of love
+                </p>
+            </div>
+
+            <div class="our-services-box">
+            <h2>
+                Our Services
+            </h2>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        Pricing
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Discounts
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Shipping mode
+                    </a>
+                </li>
+
+
+
+            </ul>
+
+            </div>
+
+            <div class="support-box">
+                <h2>
+                    Support
+                </h2>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            FAQs
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Support center
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="avaible-on-box">
+
+                <h2>
+                    Available On
+                </h2>
+
+                <a href="#" style="--bg-image-url: url('/resources/images/google-play-badge-logo.svg')"></a>
+
+                <a href="#" style="--bg-image-url: url('/resources/images/app-store-badge-logo.svg')"></a>
+
+            </div>
+        </div>
+
+        <p class="corp-text">
+            ©
+ Bedimcode. All rigths reserved
+        </p>
+
     </footer>
 
-    <script>
-
-
-
+    <script type="module" async>
         const themeToggleButtonEl = document.querySelector("#themeToggler");
-
+        const navbarEl = document.querySelector("#navbar");
+        const navbarOpenButtonEl = document.querySelector("#navbarOpenButton");
+        const navbarCloseButtonEl = document.querySelector("#navbarCloseButton");
         if(localStorage.getItem("theme")!=="light"&&localStorage.getItem("theme")!=="dark") localStorage.setItem("theme","light");
-
         if(localStorage.getItem("theme")==="light") document.firstElementChild.classList.remove("dark");
-
         if(localStorage.getItem("theme")==="dark") document.firstElementChild.classList.add("dark");
-
         themeToggleButtonEl.addEventListener("click",()=>{
             if(!document.firstElementChild.classList.contains("dark")) {
                 document.firstElementChild.classList.add("dark");
@@ -391,8 +492,15 @@
                 document.firstElementChild.classList.remove("dark");
                 localStorage.setItem("theme","light");
             }
-        })
-
+        });
+        navbarOpenButtonEl.addEventListener("click",()=>{
+            navbarEl.style.display="flex"
+            document.body.style.overflowY = "hidden";
+        });
+        navbarCloseButtonEl.addEventListener("click",()=>{
+            navbarEl.style.display="none"
+            document.body.style.overflowY = "scroll";
+        });
     </script>
     
 </body>

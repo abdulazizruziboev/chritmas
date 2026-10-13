@@ -177,6 +177,10 @@ header {
     gap: 48px;
 }
 
+.nav-close-bar {
+    display: none;
+}
+
 .navbar .nav-list {
     display: flex;
     gap: 48px;
@@ -229,6 +233,36 @@ html.dark .tt-moon-icon {
     cursor: pointer;
 }
 
+.nav-close-bar {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
+    img {
+        max-width: 100px;
+    } 
+    button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        transition: 0.2s opacity linear;
+
+        &:hover {
+            opacity: 75%;
+        }
+
+        &:active {
+            opacity: 50%;
+        }
+
+        img {
+            width: 34px;
+            height: 34px;
+        }
+        margin-right: 20px;
+    }
+}
+
 html.dark .nt-light-icon {
     display: none;
 }
@@ -240,6 +274,18 @@ html.dark .nt-light-icon {
 
 html.dark .nt-dark-icon {
     display: inline-block;
+}
+
+.nav-cbd {
+    display: none;
+}
+
+html.dark .nav-cbl {
+    display: none;
+}
+
+html.dark .nav-cbd {
+    display: block;
 }
 
 /* Main */
@@ -632,6 +678,155 @@ main {
     cursor: pointer;
 }
 
+/* Footer */
+
+footer {
+    padding: 72px 26px 48px 26px;
+    overflow: hidden;
+
+}
+
+.footer-container {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+        font-size: 20px;
+        color: var(--main-text-color);
+    }
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+.footer-container::before {
+    position: absolute;
+    content: '';
+    width: 120px;
+    height: 132px;
+    background-image: url('/resources/images/ft-1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    bottom: -120px;
+}
+
+.footer-container::after {
+    position: absolute;
+    content: '';
+    width: 120px;
+    height: 142px;
+    background-image: url('/resources/images/ft-2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    bottom: -75px;
+    right: -100px;
+}
+
+.footer-logo-link {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: var(--main-text-color); 
+    span {
+        margin-top: 5px;
+    }
+}
+
+.footer-container .main-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    gap: 24px;
+    p {
+        color: var(--main-text-color);
+        font-size: 14px;
+        opacity: 90%;
+    }
+}
+
+.footer-container .our-services-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    gap: 24px;
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        a {
+        transition: 0.2s opacity linear;
+        opacity: 90%;
+        color: var(--main-text-color);
+            &:hover {
+                opacity: 75%;
+            }
+            &:active {
+                opacity: 50%;
+            }
+        }
+    }
+}
+
+.footer-container .support-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    gap: 24px;
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        a {
+        transition: 0.2s opacity linear;
+        opacity: 90%;
+        color: var(--main-text-color);
+            &:hover {
+                opacity: 75%;
+            }
+            &:active {
+                opacity: 50%;
+            }
+        }
+    }
+}
+
+.footer-container .avaible-on-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 140px;
+    h2 {
+        margin-bottom: 12px;
+    }
+    a {
+        width: 100px;
+        height: 30px;
+        display: block;
+        background-image: var(--bg-image-url);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: 0.2s opacity linear;
+        &:hover {
+            opacity: 75%;
+        }
+        &:active {
+            opacity: 50%;
+        }
+    }
+}
+
+footer .corp-text {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 112px;
+    color: var(--main-text-color);
+}
 
 @media screen and (max-width: 990px) {
     .hero-title {
@@ -669,6 +864,11 @@ main {
         display: grid;
         grid-template-columns: repeat(3,1fr);
     }
+
+    .footer-container::after {
+        right: 0;
+        bottom: -165px;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -686,15 +886,6 @@ main {
 
     .header-nav-box {
         gap: 20px;        
-    }
-
-
-    .navbar {
-        display: none;
-    }
-
-    .navbar-toggle {
-        display: flex;
     }
 
     .hero-container {
@@ -721,10 +912,31 @@ main {
         flex-direction: column;
         align-items: center;
         gap: 40px;
+        padding-left: 24px;
+        padding-right: 24px;
+        text-align: center;
     }
 
     .fb-content {
         width: 100%;
+    }
+
+    .fb-title {
+        font-size: 20px;
+    }
+
+    .fb-input {
+        padding: 18px 24px;
+        font-size: 13px;
+    }
+
+    .fb-button {
+        padding: 18px 24px;
+        font-size: 15px;
+    }
+
+    .footer-container::before {
+        bottom: -160px;
     }
 
 }
@@ -746,8 +958,64 @@ main {
     }
 }
 
+@media screen and (max-width: 635px)  {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: var(--main-bg-color);
+        z-index: 999;
+    }
+
+    .nav-close-bar {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 64px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .shag-box article {
+        max-width: 100%;
+        width: 100%;
+    }
+
+}
+
 @media screen and (max-width: 575px) {
     .shag-box {
         grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-container::before {
+        right: 0;
+        top: 20%;
+    }
+
+    .footer-container::after {
+        right: -75px;
+        top: 65%;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .shag-box {
+        gap: 8px;
+        grid-template-columns: 1fr;
     }
 }
